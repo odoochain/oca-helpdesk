@@ -5,9 +5,9 @@ from odoo import api, fields, models
 
 
 class HelpdeskTicket(models.Model):
-    _inherit = "helpdesk.ticket"
+    _inherit = "helpdesk.ticket.chain"
 
-    type_id = fields.Many2one("helpdesk.ticket.type", string="Type")
+    type_id = fields.Many2one("helpdesk.ticket.chain.type", string="Type")
 
     @api.onchange("type_id")
     def _onchange_type_id(self):

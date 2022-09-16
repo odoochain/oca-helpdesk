@@ -1,4 +1,4 @@
-from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
+from odoo.addons.helpdesk_mgmt_chain.tests import test_helpdesk_ticket
 
 
 class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
@@ -6,9 +6,9 @@ class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
     def setUpClass(cls):
         super(TestHelpdeskType, cls).setUpClass()
         env = cls.env(user=cls.user_admin)
-        Ticket = env["helpdesk.ticket"]
-        Team = env["helpdesk.ticket.team"]
-        Type = env["helpdesk.ticket.type"]
+        Ticket = env["helpdesk.ticket.chain"]
+        Team = env["helpdesk.ticket.chain.team"]
+        Type = env["helpdesk.ticket.chain.type"]
 
         cls.ht_team1 = Team.create(
             {"name": "Team 1", "user_ids": [(4, cls.user_admin.id)]}

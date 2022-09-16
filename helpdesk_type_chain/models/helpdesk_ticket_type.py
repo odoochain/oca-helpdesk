@@ -6,13 +6,13 @@ from odoo import fields, models
 class HelpdeskType(models.Model):
     """Helpdesk Type"""
 
-    _name = "helpdesk.ticket.type"
+    _name = "helpdesk.ticket.chain.type"
     _description = "Helpdesk Ticket Type"
     _order = "name asc"
 
     name = fields.Char(required=True)
     team_ids = fields.Many2many(
-        "helpdesk.ticket.team",
+        "helpdesk.ticket.chain.team",
         string="Teams",
         help="Helpdesk teams allowed to use this type.",
     )
