@@ -3,7 +3,7 @@ from odoo import api, fields, models
 
 class HelpdeskTicket(models.Model):
 
-    _inherit = "helpdesk.ticket"
+    _inherit = "helpdesk.ticket.chain"
 
     project_id = fields.Many2one(string="Project", comodel_name="project.project")
     task_id = fields.Many2one(

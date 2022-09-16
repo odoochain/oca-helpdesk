@@ -6,7 +6,7 @@ class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
     def setUpClass(cls):
         super(TestHelpdeskTicketProject, cls).setUpClass()
         env = cls.env(user=cls.user_admin)
-        Ticket = env["helpdesk.ticket"]
+        Ticket = env["helpdesk.ticket.chain"]
         Project = env["project.project"]
         Task = env["project.task"]
         cls.ticket2 = Ticket.create({"name": "Test 2", "description": "Ticket test2"})

@@ -4,7 +4,7 @@
     "name": "Helpdesk Management Chain",
     "summary": """
         Helpdesk for Law""",
-    "version": "15.1.1.7.0",
+    "version": "15.0.1.7.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "

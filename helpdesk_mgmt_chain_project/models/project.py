@@ -5,7 +5,7 @@ class ProjectProject(models.Model):
     _inherit = "project.project"
 
     ticket_ids = fields.One2many(
-        comodel_name="helpdesk.ticket", inverse_name="project_id", string="Tickets"
+        comodel_name="helpdesk.ticket.chain", inverse_name="project_id", string="Tickets"
     )
     ticket_count = fields.Integer(compute="_compute_ticket_count", store=True)
     label_tickets = fields.Char(
