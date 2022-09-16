@@ -1,4 +1,4 @@
-from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
+from odoo.addons.helpdesk_mgmt_chain.tests import test_helpdesk_ticket
 
 
 class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
