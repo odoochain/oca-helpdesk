@@ -32,7 +32,6 @@
                         >
                             <field
                                 name="active"
-                                widget="boolean_button"
                                 options="{&quot;terminology&quot;: &quot;active&quot;}"
                             />
                         </button>

@@ -708,7 +708,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt_chain
 #: model:ir.module.category,name:helpdesk_mgmt_chain.module_helpdesk_category
-#: model:ir.ui.menu,name:helpdesk_mgmt_chain.helpdesk_ticket_main_menu
+#: model:ir.ui.menu,name:helpdesk_mgmt_chain.helpdesk_ticket_chain_main_menu
 msgid "Helpdesk"
 msgstr ""
 

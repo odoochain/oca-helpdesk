@@ -3,8 +3,8 @@
 {
     "name": "Helpdesk Management Chain",
     "summary": """
-        Helpdesk""",
-    "version": "15.0.1.7.0",
+        Helpdesk for Law""",
+    "version": "15.1.1.7.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -12,8 +12,9 @@
     "Domatix, "
     "Factor Libre, "
     "SDi Soluciones, "
+    "OddChain, "
     "Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/helpdesk",
+    "website": "https://github.com/odoochain/oca-helpdesk",
     "depends": ["mail", "portal"],
     "data": [
         "data/helpdesk_data.xml",
