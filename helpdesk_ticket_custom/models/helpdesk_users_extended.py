@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions
 
-# heredamos del modelo usuarios
+
 class helpdesk_users_extended(models.Model):
     _inherit = 'res.users'
 
@@ -18,7 +18,5 @@ class helpdesk_users_extended(models.Model):
                                string='Proyecto',
                                )
 
-    department_id = fields.Many2one(comodel_name='hr_department', string='Departamento',
-                                    related='employee_id.department_id', store=True,)
-
-
+    department_id = fields.Many2one(comodel_name='hr.department', string='Department',
+                                    related='employee_id.department_id', store=True, )

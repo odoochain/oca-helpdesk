@@ -3,6 +3,7 @@
 from odoo import models, fields, api, _
 import json
 
+
 # heredamos del modelo usuarios
 class helpdesk_partner_extended(models.Model):
     _inherit = 'res.partner'
@@ -18,11 +19,11 @@ class helpdesk_partner_extended(models.Model):
                                  )
     project_domain = fields.Char(string='project domain', compute='_compute_project_domain2')
     project = fields.Many2many(comodel_name='project.project',
-                                 relation='x_project_project_res_partner_rel',
-                                 column1='res_partner_id',
-                                 column2='project_project_id',
-                                 string='Proyecto',
-                                 )
+                               relation='x_project_project_res_partner_rel',
+                               column1='res_partner_id',
+                               column2='project_project_id',
+                               string='Proyecto',
+                               )
 
     # Función que aplica filtro dinamico de almacen
     @api.depends('parent_id')
@@ -34,25 +35,3 @@ class helpdesk_partner_extended(models.Model):
         else:
             for rec in self:
                 rec.project_domain = json.dumps([])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@ from odoo import models, fields, api, exceptions
 # Se crea modelo proyecto
 class helpdesk_project(models.Model):
     _name = 'helpdesk_project'
-    _description = 'Proyecto en mesa de ayuda'
+    _description = 'Help desk project'
 
     name = fields.Char(string='Nombre', required="True")
     x_code = fields.Char(string='Codigo', required="True", help='Agregar el código de centro de costo')

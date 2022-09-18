@@ -17,10 +17,10 @@
 
     'description': """
         Module that extends functionality in the helpdesk module and add website tickets form
-        
+
         15.0.1
         15.0.2
-        15.1.0 
+        15.1.0
         15.2.0 industry fsm suport
         15.3.0 Added filter on website for internal and external tickets
         15.3.1 fix filter create by on website
@@ -44,6 +44,7 @@
                 'website_helpdesk_form',
                 'contacts',
                 'project',
+                'hr',
                 ],
 
     # always loaded
