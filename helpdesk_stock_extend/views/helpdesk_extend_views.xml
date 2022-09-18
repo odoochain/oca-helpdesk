@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="helpdesk_ticket_view_form_inherit_stock_user_extend" model="ir.ui.view">
+        <field name='name'>helpdesk.ticket.form.inherit.return.stock.user.extend</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="priority">45</field>
+        <field name="inherit_id" ref="helpdesk_stock.helpdesk_ticket_view_form_inherit_stock_user"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='%(stock.act_stock_return_picking)d']" position="replace">
+                <button type="action" name="%(stock.act_stock_return_picking)d" groups="stock.group_stock_user"
+                        string="Return" attrs="{'invisible': [('use_product_returns', '=', False)]}"
+                        context="{'default_ticket_id': id, 'default_company_id': company_id,
+                        'default_related_stock_picking': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

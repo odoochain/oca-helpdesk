@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="stock_quant_custom_list_view" model="ir.ui.view">
+            <field name="name">stock_quant_custom_list_view</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="before">
+                    <field name="location" optional="show"/>
+                    <field name="warehouse_id" optional="show"/>
+                    <field name="usage" optional="show" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='location_id']" position="after">
+                    <field name="transit_location_id" optional="hide"/>
+                </xpath>
+                <xpath expr="//field[@name='lot_id']" position="after">
+                    <field name="plaque_id" optional="show" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="fee_unit" optional="show" readonly="1"/>
+                    <field name="contract_date" optional="hide" readonly="1"/>
+                    <field name="contract_date_end" optional="hide" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+        <!--              Stock a la mano               -->
+        <record id="view_stock_quant_tree_editable_extend" model="ir.ui.view">
+            <field name="name">view_stock_quant_tree_editable_extend</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="after">
+                    <field name="plaque_id" optional="show" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='product_uom_id']" position="after">
+                    <field name="fee_unit" optional="show" readonly="1"/>
+                    <field name="contract_date" optional="hide" invisible=""/>
+                    <field name="contract_date_end" optional="hide" invisible=""/>
+                    <field name="usage" optional="show" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+        <!--              Vista panel de control               -->
+        <record id="quant_search_view_extend" model="ir.ui.view">
+            <field name="name">quant_search_view_extend</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.quant_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='transit_loc']" position="after">
+                    <filter name="transit_cust" string="Ubicaciones de Cliente" domain="[('location_id.usage' ,'=', 'customer')]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

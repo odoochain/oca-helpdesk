@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_category_return_form_extend" model="ir.ui.view">
+            <field name="name">product_category_return_form_extend</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="return_location_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_category_return_list_extend" model="ir.ui.view">
+            <field name="name">product_category_return_list_extend</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_list_view"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='display_name']" position="after">
+                    <field name="return_location_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

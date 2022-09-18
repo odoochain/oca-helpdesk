@@ -1,0 +1,89 @@
+<odoo>
+  <data>
+    <!-- form view  -->
+    <record id="stock_picking_extended_form_view" model="ir.ui.view">
+      <field name="name">stock_picking_extended_form_view</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='picking_type_id']" position="after">
+              <field name="code" invisible="1"/>
+              <field name="warehouse_id" invisible="1"/>
+          </xpath>
+          <xpath expr="//field[@name='date_done']" position="after">
+              <field name="account_analytic_id" groups="analytic.group_analytic_accounting"/>
+              <field name="contract_date_end" invisible="1"/>
+          </xpath>
+          <xpath expr="//field[@name='backorder_id']" position="after">
+              <field name="x_type_id" options="{'no_create':true, 'no_open':true}"
+              attrs="{'readonly': ['|', ('state', '=', 'done'), ('state', '=', 'cancel')]}"/>
+              <field name="activity_id" invisible="1"/>
+              <field name="currency_id" attrs="{'readonly': ['|', ('state', '=', 'done'), ('state', '=', 'cancel')]}"/>
+          </xpath>
+          <xpath expr="//field[@name='origin']" position="after">
+              <field name="act" attrs="{'readonly': ['|', ('state', '=', 'done'), ('state', '=', 'cancel')]}"/>
+          </xpath>
+          <xpath expr="//field[@name='backorder_id']" position="after">
+              <field name="requisition_id" readonly="1" attrs="{'invisible': [('requisition_id', '=', False)]}"/>
+              <field name="purchase_id" readonly="1" attrs="{'invisible': [('purchase_id', '=', False)]}"/>
+              <field name="sale_id" readonly="1" attrs="{'invisible': [('sale_id', '=', False)]}"/>
+          </xpath>
+          <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+              <page string="Firmas" name="signature_page"
+                    attrs="{'invisible': ['|','|','|',('state','=','draft'),('state','=','waiting'),('state','=','confirmed'),
+                    ('code','=','incoming')]}">
+                  <group name="group_top">
+                      <group name="group_left">
+                          <field name="signature_delivery" widget="signature"/>
+                          <field name="employee_delivery_id" readonly=""/>
+                          <field name="employee_delivery_job_id" readonly=""/>
+                      </group>
+                      <group name="group_right">
+                          <field name="signature_warehouse_manager" widget="signature"/>
+                          <field name="employee_warehouse_id" readonly=""/>
+                          <field name="employee_warehouse_job_id" readonly=""/>
+                      </group>
+                  </group>
+                  <group name="group_top2">
+                      <group name="group_left2" invisible="1">
+                          <field name="signature_receives" widget="signature"/>
+                          <field name="employee_receives_id" readonly=""/>
+                          <field name="employee_receives_job_id" readonly=""/>
+                      </group>
+                  </group>
+              </page>
+          </xpath>
+          <xpath expr="//field[@name='partner_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='picking_type_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='user_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='group_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='company_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+
+            <!--        Concatenar campos -->
+        <field name="contract_date_end" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </field>
+        <field name="contract_date_end" position="after" attrs="{'invisible': [('code', '=', 'incoming')]}">
+          <label for="contract_date" string="Fecha de contrato" attrs="{'invisible': [('code', '=', 'incoming')]}"/>
+          <div>
+              <field name="contract_date" placeholder="23/05/2022" class="oe_inline"
+                     attrs="{'invisible': [('code', '=', 'incoming')]}"/>
+              <span class="oe_read_only" attrs="{'invisible': ['|', ('contract_date', '=', False), ('code', '=', 'incoming')]}"> - </span>
+              <field name="contract_date_end" placeholder="20/05/2022"
+                     class="oe_inline" attrs="{'invisible': [('code', '=', 'incoming')]}"/>
+          </div>
+        </field>
+      </field>
+    </record>
+  </data>
+</odoo>

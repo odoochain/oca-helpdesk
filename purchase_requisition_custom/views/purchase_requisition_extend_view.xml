@@ -1,0 +1,297 @@
+<odoo>
+  <data>
+      <!-- Action menu -->
+      <record model="ir.actions.act_window" id="action_window_purchase_requisition">
+          <field name="name">Requisiciones</field>
+          <field name="res_model">purchase.requisition</field>
+          <field name="view_mode">list,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_window_my_purchase_requisition">
+          <field name="name">Mis requisiciones</field>
+          <field name="res_model">purchase.requisition</field>
+          <field name="view_mode">list,form</field>
+          <field name="domain">[('user_id', '=', uid)]</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_window_requisition">
+          <field name="name">Requisiciones</field>
+          <field name="res_model">purchase.requisition</field>
+          <field name="view_mode">list,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_window_purchase_requisition_transfer">
+          <field name="name">Transferencia de inventario</field>
+          <field name="res_model">stock.picking</field>
+          <field name="view_mode">list,form</field>
+          <field name="domain">[('requisition_id', '!=', False), ('picking_type_id.code', '=', 'internal')]</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_window_purchase_requisition_incoming">
+          <field name="name">Recepciones</field>
+          <field name="res_model">stock.picking</field>
+          <field name="view_mode">list,form</field>
+          <field name="domain">[('requisition_id', '!=', False), ('picking_type_id.code', '=', 'incoming')]</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_window_purchase_requisition_setting">
+          <field name="name">Tipo de acuerdo de compra</field>
+          <field name="res_model">purchase.requisition.type</field>
+          <field name="view_mode">list,form</field>
+      </record>
+
+      <!-- Top menu item -->
+      <menuitem name="Requisiciones"
+                id="menu_purchase_requisition_root"
+                groups="base.group_user"
+                web_icon="purchase_requisition_custom,static/description/icon2.png"
+                action="action_window_purchase_requisition" sequence="136"/>
+
+      <menuitem name="Ordenes"
+                id="menu_purchase_requisition_pro_mgt_custom"
+                parent="menu_purchase_requisition_root"
+                sequence="11"/>
+
+      <menuitem name="Transaciones"
+                id="menu_purchase_requisition_transfer"
+                parent="menu_purchase_requisition_root"
+                sequence="12"/>
+
+      <menuitem name="Configuración"
+                id="menu_purchase_requisition_setting"
+                parent="menu_purchase_requisition_root"
+                groups="purchase.group_purchase_manager"
+                sequence="13"/>
+
+      <!--Supplier menu-->
+      <menuitem name="Mis requisiciones"
+                id="supplier_menu_my_purchase_requisition"
+                parent="menu_purchase_requisition_pro_mgt_custom"
+                action="action_window_my_purchase_requisition" sequence="1"/>
+
+      <menuitem name="Requisiciones"
+                id="supplier_menu_deparment_purchase_requisition"
+                parent="menu_purchase_requisition_pro_mgt_custom"
+                action="action_window_requisition" sequence="2"/>
+
+      <menuitem name="Transferencia de inventario"
+                id="supplier_menu_purchase_transfer"
+                parent="menu_purchase_requisition_transfer"
+                action="action_window_purchase_requisition_transfer" sequence="3"/>
+
+      <menuitem name="Recepciones"
+                id="supplier_menu_purchase_incoming"
+                parent="menu_purchase_requisition_transfer"
+                action="action_window_purchase_requisition_incoming" sequence="4"/>
+
+      <menuitem name="Tipo de acuerdo de compra"
+                id="supplier_menu_purchase_requistion_type"
+                parent="menu_purchase_requisition_setting"
+                action="action_window_purchase_requisition_setting" sequence="5"/>
+
+      <!-- Smart button -->
+      <record model="ir.actions.act_window" id="action_stock_picking_to_so">
+          <field name="name">Transferencia inmediata</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">stock.picking</field>
+          <field name="view_mode">tree,form</field>
+          <field name="domain">[('requisition_id','=',active_id)]</field>
+          <field name="context">{
+              "default_requisition_id":active_id,
+              "default_user_id": False,
+              }
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_stock_picking_list">
+          <field name="name">Transferencia inmediata</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">stock.picking</field>
+          <field name="view_mode">tree,form</field>
+          <field name="domain">[('requisition_id','=',active_id)]</field>
+          <field name="context">{
+              "default_requisition_id":active_id,
+              "default_user_id": False,
+              }
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_tickets_list">
+          <field name="name">Tickets</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">helpdesk.ticket</field>
+          <field name="view_mode">tree,form</field>
+          <field name="domain">[('requisition_many2many','=',active_id)]</field>
+          <field name="context">{
+              "default_requisition_id":active_id,
+              "default_user_id": False,
+              }
+          </field>
+      </record>
+
+      <!-- Purchase Orders -->
+    <record model="ir.actions.act_window" id="action_purchase_requisition_to_so">
+        <field name="name">Request for Quotation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">form,tree</field>
+        <field name="domain">[('requisition_id','=',active_id)]</field>
+        <field name="context">{
+            "default_requisition_id":active_id,
+            "default_user_id": False,
+            }
+        </field>
+    </record>
+
+      <!-- inherit form  -->
+      <record id="purchase_requisition_extend_view" model="ir.ui.view">
+          <field name="name">purchase_requisition_extend_view</field>
+          <field name="model">purchase.requisition</field>
+          <field name="inherit_id" ref='purchase_requisition.view_purchase_requisition_form'/>
+          <field name="arch" type="xml">
+              <!--         action button           -->
+              <xpath expr="//header" position="replace">
+                  <header>
+                      <!--         draft state           -->
+                      <button name="action_notification" string="Notify" type="object" class="btn-primary"/>
+                      <button name="action_in_progress_extend" states="draft" string="Confirmar" type="object" class="btn-primary"
+                              confirm="¿Desea confirmar este acuerdo de compra?"/>
+                      <!--         	in progress state           -->
+                      <button name="action_approve" states="in_progress" string="Aprobar" type="object" class="btn-primary"
+                              confirm="¿Desea aprobar este acuerdo de compra?"/>
+                      <button name="action_cancel_extend" states="in_progress" string="Rechazar" type="object"
+                              confirm="¿Desea anular este acuerdo de compra?"/>
+                      <!--         	assigned and open state           -->
+                      <button name="%(action_purchase_requisition_to_so)d" type="action" string="Nuevo Presupuesto"
+                              states="assigned,open" class="btn-primary" attrs="{'invisible': [('state', '!=', 'open')]}"/>
+                      <button name="action_stock_picking_create" states="assigned,open" string="Transferencia"
+                              type="object" class="btn-primary" confirm="¿Desea crear una tranferencia inmediata?"
+                              context="{'default_requisition_id':active_id, 'default_user_id': False}"
+                              groups="purchase.group_purchase_user"/>
+                      <!--         	open state           -->
+                      <button name="action_done" states="open,ongoing" string="Cerrar" type="object" class="btn-primary"
+                               groups="purchase.group_purchase_user"/>
+                      <button name="action_show_picking" states="draft,ongoing,in_progress,approved,assigned,open"
+                              string="Refrescar" type="object"
+                              context="{'default_requisition_id':active_id, 'default_user_id': False}"
+                              confirm="¿Desea realizar comprobación de stock por locación?"/>
+
+                      <button name="action_cancel" states="approved,assigned,open" string="Cancelar" type="object"
+                              confirm="¿Desea anular este acuerdo de compra?" groups="purchase.group_purchase_manager"/>
+                      <button name="action_cancel" states="draft,ongoing,in_progress" string="Cancelar" type="object"
+                              confirm="¿Desea anular este acuerdo de compra?"/>
+                      <button name="action_draft" states="cancel" string="Cambiar a borrador" type="object"/>
+                      <!--         	state button           -->
+                      <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,open,done" attrs="{'invisible': [('is_quantity_copy', '=', 'none')]}"/>
+                      <field name="state_blanket_order" widget="statusbar" statusbar_visible="draft,ongoing,done" attrs="{'invisible': [('is_quantity_copy', '!=', 'none')]}"/>
+                  </header>
+              </xpath>
+              <!--         smart button           -->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                  <button name="%(action_stock_picking_list)d" type="action" class="oe_stat_button" icon="fa-cubes"
+                          attrs="{'invisible': [('state', '=', 'draft')]}">
+                      <field name="stock_picking_count" widget="statinfo" string="Stock Picking"/>
+                  </button>
+                  <button name="%(action_tickets_list)d" type="action" class="oe_stat_button" icon="fa-life-ring">
+                      <field name="tickets_count" widget="statinfo" string="Tickets"/>
+                  </button>
+              </xpath>
+              <!--        campos             -->
+              <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="string">Representante de requisición</attribute>
+              </xpath>
+              <xpath expr="//field[@name='user_id']" position="before">
+                  <field name="assignees_id" groups="purchase.group_purchase_user" states="approved,assigned,open,done"/>
+              </xpath>
+              <xpath expr="//field[@name='user_id']" position="after">
+                  <field name="department_id" invisible=""/>
+                  <field name="available" invisible="1"/>
+                  <field name="activity_id" invisible="1"/>
+                  <field name="time_off_related" invisible="1"/>
+                  <field name="time_off"/>
+                  <field name="manager2_id" attrs="{'invisible': [('time_off', '=', 'Disponible')]}"/>
+              </xpath>
+              <xpath expr="//field[@name='date_end']" position="after">
+                  <field name="current_date" invisible="1"/>
+                  <field name="show_picking" invisible="1"/>
+                  <field name="c" invisible="1"/>
+                  <field name="cc" invisible="1"/>
+                  <field name="len_id" invisible="1"/>
+                  <field name="purchase_order_process" invisible="1"/>
+              </xpath>
+              <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='picking_type_id']" position="attributes">
+                <attribute name="attrs">{"readonly": [["state","!=","draft"]]}</attribute>
+                <attribute name="invisible">1</attribute>
+              </xpath>
+              <xpath expr="//field[@name='date_end']" position="attributes">
+                  <attribute name="required">1</attribute>
+                  <attribute name="attrs">{"readonly": [["state","in",["open","done","cancel"]]]}</attribute>
+              </xpath>
+              <xpath expr="//field[@name='ordering_date']" position="attributes">
+                  <attribute name="attrs">{"readonly": [["state","in",["open","done","cancel"]]]}</attribute>
+              </xpath>
+              <xpath expr="//field[@name='company_id']" position="after">
+                  <field name="ticket_many2many" widget="many2many_tags" options="{'no_create':true}"/>
+              </xpath>
+              <xpath expr="//field[@name='vendor_id']" position="attributes">
+                  <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+              </xpath>
+              <xpath expr="//field[@name='user_id']" position="attributes">
+                  <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+                  <attribute name="attrs">{"readonly": [["state","in",["open","done","cancel"]]]}</attribute>
+              </xpath>
+              <xpath expr="//field[@name='line_ids']" position="attributes">
+                <attribute name="attrs">{"readonly": [["state","in",["open","done","cancel"]]]}</attribute>
+              </xpath>
+              <!--        Concatenar campos -->
+              <field name="time_off" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </field>
+              <field name="time_off" position="after">
+                  <label for="manager_id" string="Responsable de aprobación"/>
+                  <div>
+                      <field name="manager_id" class="oe_inline"
+                             options="{'no_open':true}"/>
+                      <span class="oe_read_only" attrs="{'invisible': [('manager_id', '=', False)]}"> - </span>
+                      <field name="time_off" placeholder="Number" class="oe_inline" style="color: green"
+                             attrs="{'invisible': ['|', ('time_off_related', '=', True), ('manager_id', '=', False)]}"/>
+                      <field name="time_off" placeholder="Number" class="oe_inline" style="color: red"
+                             attrs="{'invisible': ['|', ('time_off_related', '=', False), ('manager_id', '=', False)]}"/>
+                  </div>
+              </field>
+          </field>
+      </record>
+
+      <!--   tree view     -->
+        <record id="purchase_requisition_custom.location_warehouse_list_view" model="ir.ui.view">
+            <field name="name">purchase_requisition_custom.location_warehouse_list_view</field>
+            <field name="model">location_warehouse</field>
+            <field name="arch" type="xml">
+                <tree string="tree" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="purchase_requisition_extend_list_view" model="ir.ui.view">
+          <field name="name">purchase_requisition_extend_list_view</field>
+          <field name="model">purchase.requisition</field>
+          <field name="inherit_id" ref='purchase_requisition.view_purchase_requisition_tree'/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="string">Representante de requisición</attribute>
+              </xpath>
+              <xpath expr="//field[@name='origin']" position="after">
+                  <field name="assignees_id"/>
+              </xpath>
+              <xpath expr="//field[@name='state']" position="after">
+                  <field name="purchase_order_process" groups="purchase.group_purchase_user" invisible="1"/>
+                  <field name="purchase_order_many2many" optional="show" widget="many2many_tags"
+                         options="{'color_field': 'color'}" groups="purchase.group_purchase_user"/>
+              </xpath>
+          </field>
+      </record>
+  </data>
+</odoo>

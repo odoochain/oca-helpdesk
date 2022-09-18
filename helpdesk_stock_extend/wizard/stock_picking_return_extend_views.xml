@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_return_picking_form_inherit_helpdesk_stock_extend" model="ir.ui.view">
+            <field name="name">Return_extend</field>
+            <field name="model">stock.return.picking</field>
+            <field name="inherit_id" ref="helpdesk_stock.view_stock_return_picking_form_inherit_helpdesk_stock"/>
+            <field name="arch" type="xml">
+                <!--            Buttons footer    -->
+                <xpath expr="//footer" position="replace">
+                    <footer>
+                        <button name="create_returns" string="Return" type="object" class="btn-primary" data-hotkey="q"
+                                attrs="{'invisible': [('type_return', '=', 'product')]}"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </xpath>
+                <!--            Fields    -->
+                <xpath expr="//field[@name='suitable_picking_ids']" position="after">
+                    <field name="type_return" widget="radio" options="{&quot;horizontal&quot;:true}"
+                           attrs="{'invisible': [('ticket_id', '=', False)]}"/>
+                    <field name="location" invisible="1"/>
+                    <field name="warehouse_domain" invisible="1"/>
+                    <field name="warehouse_id" invisible="1"/>
+                    <field name="location_domain" invisible="1"/>
+                    <field name="location_origin_id" invisible="1"/>
+                    <field name="picking_domain_ids" invisible="1"/>
+                    <field name="stock_picking_ids" invisible="1"/>
+                    <field name="stock_quant_domain" invisible="1"/>
+                    <field name="related_stock_picking" invisible="1"/>
+                </xpath>
+                <!--            Attributes    -->
+                <xpath expr="//group/field[@name='picking_id']" position="replace">
+                    <field name="picking_id" options="{'no_create': True}" string="Delivery to Return" invisible="1"/>
+                </xpath>
+                <!--            warehouse and location view -->
+                <field name="warehouse_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="warehouse_id" position="after">
+                    <div attrs="{'invisible': [('ticket_id', '=', False)]}">
+                        <label for="location" string="Locación:"/>
+                        <field name="location" attrs="{'required': [('ticket_id', '!=', False)]}"/>
+                        <span class="oe_read_only" > -- </span>
+                        <label for="warehouse_id" string="Almacen de origen:"/>
+                        <field name="warehouse_id" attrs="{'required': [('ticket_id', '!=', False)]}"/>
+                        <span class="oe_read_only" > -- </span>
+                        <label for="location_origin_id" string="Ubicación de origen:"/>
+                        <field name="location_origin_id" attrs="{'required': [('ticket_id', '!=', False)]}"/>
+                    </div>
+                </field>
+                <!--            pickings view -->
+                <field name="stock_picking_ids" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="stock_picking_ids" position="after">
+                    <div>
+                        <label for="stock_picking_ids" string="Envios para devolver:"
+                               attrs="{'invisible': ['|', ('ticket_id', '=', False), ('type_return', '=', 'product')]}"/>
+                        <field name="stock_picking_ids" widget="many2many_tags"
+                               attrs="{'invisible': ['|', ('ticket_id', '=', False), ('type_return', '=', 'product')]}"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_stock_return_picking_form_extend" model="ir.ui.view">
+            <field name="name">Return_extend</field>
+            <field name="model">stock.return.picking</field>
+            <field name="inherit_id" ref="stock.view_stock_return_picking_form"/>
+            <field name="arch" type="xml">
+                <!--            Fields    -->
+                <xpath expr="//group[2]" position="replace">
+                    <notebook attrs="{'invisible': [('ticket_id', '=', False)]}">
+                        <page name="detail_operation" string="Detail Operation" attrs="{'invisible': [('type_return', '=', 'picking')]}">
+                            <field name="stock_quant_ids" nolabel="1" invisible="" attrs="{'readonly': [('location_origin_id', '=', False)]}">
+                                <tree editable="top" create="1">
+                                    <field name="id" invisible=""/>
+                                    <field name="product_id" invisible=""/>
+                                    <field name="lot_id" invisible=""/>
+                                    <field name="quantity"/>
+                                    <field name="product_uom_id" invisible=""/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="operation" string="Operation" attrs="{'invisible': [('type_return', '=', 'picking')]}">
+                            <field name="product_return_moves" nolabel="1">
+                                <tree editable="top" create="1">
+                                    <field name="product_id" options="{'no_create': True, 'no_open': True}" force_save="1"/>
+                                    <field name="return_location_id" optional="show"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id" groups="uom.group_uom"/>
+                                    <field name="move_id" invisible="1"/>
+                                    <field name="stock_quant_ids" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+                <!--            Attributes    -->
+                <xpath expr="//group/field[@name='product_return_moves']" position="replace">
+                    <field name="product_return_moves" nolabel="1" attrs="{'invisible': [('ticket_id', '!=', False), ('type_return', '=', 'product')]}">
+                        <tree editable="top" create="0">
+                            <field name="product_id" options="{'no_create': True, 'no_open': True}" force_save="1"/>
+                            <field name="return_location_id" optional="show"/>
+                            <field name="quantity"/>
+                            <field name="uom_id" groups="uom.group_uom"/>
+                            <field name="move_id" invisible="1"/>
+                            <field name="stock_quant_ids" optional="hide"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

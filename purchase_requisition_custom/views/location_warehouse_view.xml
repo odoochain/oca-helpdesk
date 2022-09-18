@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--   tree view     -->
+        <record id="purchase_requisition_custom.location_warehouse_list_view" model="ir.ui.view">
+            <field name="name">purchase_requisition_custom.location_warehouse_list_view</field>
+            <field name="model">location_warehouse</field>
+            <field name="arch" type="xml">
+                <tree string="tree" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--   actions opening views on models   -->
+        <record model="ir.actions.act_window" id="action_window_location_warehouse">
+          <field name="name">Locación</field>
+          <field name="res_model">location_warehouse</field>
+          <field name="view_mode">list,form</field>
+        </record>
+
+        <!--   Supplier menu   -->
+        <menuitem name="Locación" id="purchase_requisition_custom.location_warehouse_supplier_menu" parent="stock.menu_warehouse_config"
+                  action="action_window_location_warehouse" sequence="9"/>
+
+    </data>
+</odoo>

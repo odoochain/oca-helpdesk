@@ -1,0 +1,1163 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_requisition_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211026\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-09 15:18+0000\n"
+"PO-Revision-Date: 2022-05-09 15:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_warehouse__usage
+msgid ""
+"* Vendor Location: Virtual location representing the source location for products coming from your vendors\n"
+"* Internal Location: Physical locations inside your own warehouses,\n"
+"* Customer Location: Virtual location representing the destination location for products sent to your customers"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_inherit_view
+msgid ""
+"<span class=\"oe_read_only\" attrs=\"{'invisible': [('aprove_manager', '=', "
+"False)]}\"> - </span>"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid ""
+"<span class=\"oe_read_only\" attrs=\"{'invisible': [('manager_id', '=', "
+"False)]}\"> - </span>"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.report_purchaseorder_document_extend
+msgid "<strong>Account Analytic</strong>"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.report_purchaseorder_document_extend
+msgid "<strong>Payment Term:</strong>"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.report_purchaseorder_document_extend
+msgid "<strong>Sub Total</strong>"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__warehouse_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__dest_warehouse_id
+msgid "A almacen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__warehouse_id
+msgid "A almacén"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__default_location_dest_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__dest_location_id
+msgid "A ubicación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.report_purchaseorder_document_extend
+msgid "Account Analytic"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_helpdesk_ticket__requisition_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_helpdesk_ticket__requisition_many2many
+msgid "Acuerdo de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__requisition_id
+msgid "Acuerdos de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_quant__warehouse_id
+msgid "Almacen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__stock_warehouse__usage__supplier
+msgid "Almacen Cliente"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__stock_warehouse__usage__internal
+msgid "Almacen Interno"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__stock_warehouse__usage__customer
+msgid "Almacen Proveedor"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.employee_extend_extended_view
+msgid "Almacen a disposición"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__warehouse_id
+msgid "Almacen a mover"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__dest_warehouse_id
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__origin_warehouse_id
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_quant__warehouse_id
+msgid "Almacen origen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_hr_employee__manager_warehouse
+msgid "Almacenes"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_hr_employee__manager_warehouse
+msgid "Almacenes que puedes aprobar transferencia internas inmeditas"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__account_analytic_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__account_analytic_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_account_analytic_line
+msgid "Analytic Line"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__analytic_tag_ids
+msgid "Analytic Tags"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__aprove_manager2
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__manager2_id
+msgid "Aprobación alternativa"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__approved
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__approved
+msgid "Aprobado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Aprobar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Aprobar Orden"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Aprobar Orden ⁽2⁾"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Aprobar Orden ⁽3⁾"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Aprobar Orden ⁽4⁾"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Aprobar Orden ⁽5⁾"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Aprobar Orden ⁽estra⁾"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__assignees_id
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__assigned
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__assigned
+msgid "Asignado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__time_off_related
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__time_off_related
+msgid "Ausencia"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__open
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__open
+msgid "Bid Selection"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Cambiar a borrador"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Cancelar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__cancel
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__cancel
+msgid "Cancelled"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#, python-format
+msgid "Cancelled by the agreement associated to this quotation."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__product_qty2
+msgid "Cantidad"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_line_extend_view
+msgid "Cantidad compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__inventory_product_qty
+msgid "Cantidad de pruductos que deseas sacar o mover de inventario"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__product_qty2
+msgid "Cantidad de pruductos solicitado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__inventory_product_qty
+msgid "Cantidad inventario"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Cerrar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__done
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__done
+msgid "Closed"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__concatenate_location
+msgid "Concatenar locación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Confirmar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "Confirmar Orden"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__in_progress
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__in_progress
+msgid "Confirmed"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.stock_location_form_extend_view
+msgid "Contabilidad"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_move__standard_price_t
+msgid "Costo"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_move__standard_price
+msgid "Costo Unitario"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_move__standard_price_t
+msgid "Costo unitario por cantidad de productos."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__create_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__create_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_order__aprove_manager2
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition__manager2_id
+msgid ""
+"Cuando el jefe inmediato se encuentra ausente, debe aprobar el siguiente "
+"respondable"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__account_analytic_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_move__account_analytic_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__account_analytic_id
+msgid "Cuenta Analítica"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__product_description_variants
+msgid "Custom Description"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__code
+msgid "Código"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__origin_warehouse_id
+msgid "De Almacen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__origin_location_id
+msgid "De ubicación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.stock_picking_extended_form_view
+msgid "Demo"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__department_id
+msgid "Departamento"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__display_name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__time_off
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__time_off
+msgid "Disponibilidad"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__qty_location
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__qty_location
+msgid "Disponible"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__draft
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__draft
+msgid "Draft"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__x_project
+msgid "El proyecto está relacionado con su respectivo centro de costo"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_warehouse__employee_id
+msgid "Empleado que puede aprobar transferencias internas en el almacen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_res_users__employee_id
+msgid "Empleado relacionado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__employee_id
+msgid "Empleado responsable"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_hr_employee__general_manager
+msgid "Es la persona que no tiene limite para aprobar presupuesto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_hr_employee__active_budget
+msgid "Es responsable de presupuesto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__transit_location
+msgid "Es ubicación de transito"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__requisition_state
+msgid "Estado acuerdo de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_hr_employee__active_budget
+msgid "Está check activa la opción de asignar presupiesto al empleado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_move__stage
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__stage
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__stage
+msgid "Etapa"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__current_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__current_date
+msgid "Fecha actual"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__id
+msgid "ID"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_move__standard_price
+msgid ""
+"In Standard Price & AVCO: value of the product (automatically computed in AVCO).\n"
+"            In FIFO: value of the last unit that left the stock (automatically computed).\n"
+"            Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
+"            Used to compute margins on sale orders."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_location__location_id2
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_warehouse__location_id
+msgid "Indica la locación/ciudad donde se encuentra el almacen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_product_product__stock_quant
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_product_template__stock_quant
+msgid "Inventario disponible"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_location
+msgid "Inventory Locations"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__manager_id
+msgid "Jefe del área"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition__manager_id
+msgid "Jefe inmediato respondable de su aprobación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_order__aprove_manager
+msgid "Jefe responsable de aprobar la solicitud de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.constraint,message:purchase_requisition_custom.constraint_location_warehouse_name_unique
+msgid "La locación ya existe"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse____last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute____last_update
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__write_uid
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__write_date
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_window_location_warehouse
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_location_warehouse__name
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__location
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__location_id2
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__origin_location
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_quant__location
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__location_id
+#: model:ir.ui.menu,name:purchase_requisition_custom.location_warehouse_supplier_menu
+msgid "Locación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__location_dest_id_domain
+msgid "Location Dest Id Domain"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__location_id_domain
+msgid "Location Id Domain"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_window_my_purchase_requisition
+#: model:ir.ui.menu,name:purchase_requisition_custom.supplier_menu_my_purchase_requisition
+msgid "Mis requisiciones"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_hr_employee__budget
+msgid "Monto maximo que puede aprobar por solicitud de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__show_picking
+msgid "Mostrar/ocultar el button y smart button de solicitud de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition__show_picking
+msgid "Mostrar/ocultar el campo cantidad de producto en stock"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__property_stock_inventory
+msgid "Mover de"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_account_analytic_line__stock_picking_line_id
+msgid "Movimietos de Almacén sin paquete"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__qty_location
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__qty_location
+msgid ""
+"Muestra la cantidad disponible en la ubicación selecionada del producto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__available_quantity_total
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__available_quantity_total
+msgid "Muestra la cantidad disponible que está sin reservar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__quantity
+msgid "Muestra la cantidad pedida por ubicación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__location
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__origin_location
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_quant__location
+msgid "Muestra la ubicación de la ciudad/locación del producto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__property_stock_inventory
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__dest_location_id
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__origin_location_id
+msgid "Muestra la ubicación del producto en el inventario"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__parent_location_id
+msgid "Muestra la ubicación padre del producto en el inventario"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__name_picking
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__name_picking
+msgid "Name"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Nuevo Presupuesto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_inherit_view
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Number"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__stock_picking_count
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__tickets_count
+msgid "Numero de transferencias"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__observations
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__observations
+msgid "Observaciones"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state__ongoing
+#: model:ir.model.fields.selection,name:purchase_requisition_custom.selection__purchase_requisition__state_blanket_order__ongoing
+msgid "Ongoing"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__code
+msgid "Operación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_requisition_pro_mgt_custom
+msgid "Ordenes"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_type__available_requisition
+msgid ""
+"Permite usar el tipo de operación en requisiciones en el apartado "
+"solicitudes de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking__validation
+msgid "Permite validar el stock picking de transito a destino"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__show_picking
+msgid "Picking"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_picking_type
+msgid "Picking Type"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_hr_employee__budget
+msgid "Presupuesto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.employee_extend_extended_view
+msgid "Presupuesto asignado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__product_id
+msgid "Product"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__x_project
+msgid "Proyecto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_type__available_requisition
+msgid "Puede usarse en ordenes de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__available_requisition
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__show
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__available_requisition
+msgid "Puede usarse en requisiciones"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__requisition_id
+msgid "Purchase Agreement"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_requisition_line
+msgid "Purchase Requisition Line"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_purchase_account_analytic_compute
+msgid "Purchase account analytic"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__purchase_order
+msgid "Purchase order"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__purchase_order_line
+msgid "Purchase order line"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__product_qty
+msgid "Quantity"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_quant
+msgid "Quants"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_window_purchase_requisition_incoming
+#: model:ir.ui.menu,name:purchase_requisition_custom.supplier_menu_purchase_incoming
+msgid "Recepciones"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Rechazar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Refrescar"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__representative_user
+msgid "Representante del Proveedor"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_purchase_requisition_to_so
+msgid "Request for Quotation"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_window_purchase_requisition
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_window_requisition
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_requisition_root
+#: model:ir.ui.menu,name:purchase_requisition_custom.supplier_menu_deparment_purchase_requisition
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.employee_extend_extended_view
+msgid "Requisiciones"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__manager_before
+msgid "Responsable de anterior"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__aprove_manager
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_inherit_view
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Responsable de aprobación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.stock_warehouse_extend_view
+msgid "Responsables"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__code
+msgid "Short Name"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_warehouse__code
+msgid "Short name used to identify your warehouse"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_hr_employee__general_manager
+msgid "Sin tope de presupuesto"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_location__transit_location
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_location__transit_location_id
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_picking_transit__transit_location_id
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_quant__transit_location_id
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_warehouse__transit_location
+#: model:ir.model.fields,help:purchase_requisition_custom.field_stock_warehouse__transit_location_id
+msgid "Solo se permite una ubicación de transito por almacen"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__state_blanket_order
+msgid "State Blanket Order"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__state
+msgid "Status"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__available_quantity_total
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__available_quantity_total
+msgid "Stock"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Stock Picking"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_hr_employee__stock_warehouse_domain
+msgid "Stock Warehouse Domain"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__purchase_ids2
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__stock_picking_id
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.account_analytic_line_extend_form_view
+msgid "Stock picking"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__parent_stock_picking
+msgid "Stock picking padre"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_picking_transit
+msgid "Stock picking transit"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__x_stock_picking_transit
+msgid "Stock picking transitorio"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_account_analytic_compute__price_subtotal
+msgid "Subtotal"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_tickets_list
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__ticket_many2many
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__ticket_many2many
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Tickets"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__usage
+msgid "Tipo de almacén"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__picking_type_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__picking_type_id
+msgid "Tipo de operación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.ui.menu,name:purchase_requisition_custom.menu_purchase_requisition_transfer
+msgid "Transaciones"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "Transferencia"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_window_purchase_requisition_transfer
+#: model:ir.ui.menu,name:purchase_requisition_custom.supplier_menu_purchase_transfer
+msgid "Transferencia de inventario"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_stock_picking_list
+#: model:ir.actions.act_window,name:purchase_requisition_custom.action_stock_picking_to_so
+msgid "Transferencia inmediata"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__transit_location_id_domain
+msgid "Transit Location Id Domain"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_requisition_line__default_location_dest_id
+msgid "Ubicación a mover, con filtro de almacane y ubicación interna, cliente"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__transit_location_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__transit_location_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_quant__transit_location_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__transit_location
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_warehouse__transit_location_id
+msgid "Ubicación de transito"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__parent_location_id
+msgid "Ubicación padre"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_extend.py:0
+#, python-format
+msgid ""
+"Unable to cancel this purchase order. You must first cancel the related "
+"vendor bills."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,help:purchase_requisition_custom.field_purchase_order__representative_user
+msgid "Usuario que solicita el acuerdo de compra"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__validation
+msgid "Validacación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_stock_warehouse
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_location__warehouse_id
+msgid "Warehouse"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#, python-format
+msgid "You cannot confirm agreement '%s' because there is no product line."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#, python-format
+msgid "You cannot confirm the blanket order without price."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#, python-format
+msgid "You cannot confirm the blanket order without quantity."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#: code:addons/purchase_requisition_custom/models/purchase_requisition_extend.py:0
+#, python-format
+msgid ""
+"You have to cancel or validate every RfQ before closing the purchase "
+"requisition."
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__cc
+msgid "cc"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__demo1
+msgid "demo 1"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__demo2
+msgid "demo 2"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__demo3
+msgid "demo 3"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__available
+msgid "habilitado"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__activity_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__activity_id
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking__activity_id
+msgid "id actividad"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model,name:purchase_requisition_custom.model_location_warehouse
+msgid "location_warehouse"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition__len_id
+msgid "longitud"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__state_aprove
+msgid "nivel de aprobación"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_stock_picking_transit__quantity
+msgid "qty"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__related_requisition
+msgid "relacion requicision"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_requisition_line__show_picking
+msgid "show"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model:ir.model.fields,field_description:purchase_requisition_custom.field_purchase_order__x_account_analytic_cost
+msgid "subtotal cuentas analíticas"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.location_warehouse_list_view
+msgid "tree"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "¿Desea anular esta solicitud de compra?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "¿Desea anular este acuerdo de compra?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "¿Desea aprobar esta solicitud de compra?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "¿Desea aprobar este acuerdo de compra?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_extend_view
+msgid "¿Desea confirmar esta solicitud de compra?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "¿Desea confirmar este acuerdo de compra?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "¿Desea crear una tranferencia inmediata?"
+msgstr ""
+
+#. module: purchase_requisition_custom
+#: model_terms:ir.ui.view,arch_db:purchase_requisition_custom.purchase_requisition_extend_view
+msgid "¿Desea realizar comprobación de stock por locación?"
+msgstr ""

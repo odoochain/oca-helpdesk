@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Form view-->
+        <record id="stock_warehouse_extend_view" model="ir.ui.view">
+            <field name="name">stock_warehouse_extend_view</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <page string="Responsables" name="responsables de almacen">
+                        <group name="responsable_top">
+                            <field name="employee_id" widget="many2many_tags" options="{'no_create':true}" required="True"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="location_id" options="{'no_create':true, 'no_open':true}"/>
+                </xpath>
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="usage"/>
+                    <field name="available_requisition" attrs="{'invisible': [('usage', '=', 'customer')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='wh_output_stock_loc_id']" position="after">
+                    <field name="transit_location_id_domain" invisible="1"/>
+                    <field name="transit_location_id" domain="transit_location_id_domain"/>
+                    <field name="transit_location" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='transit_location_id']" position="attributes">
+                    <attribute name="attrs">{"invisible": [["usage","!=","internal"]]}</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!--        Tree view-->
+        <record id="stock_warehouse_tree_extend" model="ir.ui.view">
+            <field name="name">stock_warehouse_tree_extend</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree[1]/field[@name='name']" position="after">
+                    <field name="usage" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='lot_stock_id']" position="after">
+                    <field name="transit_location_id" optional="show"/>
+                    <field name="location_id" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="employee_id" widget="many2many_tags_avatar" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--      Movimientos de productos, vita lista            -->
+        <record id="stock_move_line_extend_tree_view" model="ir.ui.view">
+            <field name="name">stock_move_line_extend_tree_view</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="after">
+                    <field name="plaque_id"/>
+                </xpath>
+                <xpath expr="//field[@name='product_uom_id']" position="after">
+                    <field name="fee_unit" optional="show"/>
+                    <field name="fee_subtotal" optional="show"/>
+                    <field name="contract_date" optional="hide" invisible=""/>
+                    <field name="contract_date_end" optional="hide" invisible=""/>
+                </xpath>
+            </field>
+        </record>
+        <!--      Movimientos de productos, vita formulario            -->
+        <record id="stock_move_line_extend_form_view" model="ir.ui.view">
+            <field name="name">stock_move_line_extend_form_view</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="after">
+                    <field name="plaque_id"/>
+                    <field name="fee_unit"/>
+                    <field name="fee_subtotal" optional="show"/>
+                    <field name="contract_date" optional="hide" invisible=""/>
+                    <field name="contract_date_end" optional="hide" invisible=""/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

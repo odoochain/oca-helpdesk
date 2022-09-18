@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <!-- Se hereda el campo de proyectos en el modelo de usuarios  -->
+    <record id="employee_extend_extended_view" model="ir.ui.view">
+      <field name="name">employee_extend_view</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='hr_settings']" position="after">
+          <page string="Requisiciones">
+            <group>
+              <group string="Presupuesto asignado">
+                <field name="active_budget"/>
+                <field name="general_manager" attrs="{'invisible': [('active_budget', '=', False)]}"/>
+                <field name="parent_optional_id" attrs="{'invisible': [('general_manager', '=', False)]}"/>
+                <field name="budget" style="color: blue"
+                       attrs="{'invisible': ['|', ('general_manager', '=', True), ('active_budget', '=', False)]}"/>
+                 <field name="budget_len"
+                       attrs="{'invisible': ['|', ('general_manager', '=', True), ('active_budget', '=', False)]}"/>
+                <field name="budget_available" style="color: green" readonly="1"
+                       attrs="{'invisible': ['|', ('general_manager', '=', True), ('active_budget', '=', False)]}"/>
+              </group>
+              <group string="Almacen a disposición">
+                <field name="manager_warehouse" widget="many2many_tags" options="{'no_create':true}"
+                        domain="stock_warehouse_domain"/>
+                <field name="stock_warehouse_domain" invisible="1"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+        <xpath expr="//field[@name='user_id']" position="attributes">
+          <attribute name="required">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='parent_id']" position="attributes">
+          <attribute name="attrs">{"required": [["general_manager","!=",True]]}</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

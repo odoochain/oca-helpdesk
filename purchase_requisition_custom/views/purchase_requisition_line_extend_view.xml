@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_requisition_line_extend_view" model="ir.ui.view">
+            <field name="name">purchase_requisition_line_extend_view</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='product_id']" position="before">
+                    <field name="image_product" widget="image" optional="show"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='product_description_variants']" position="before">
+                    <field name="available_quantity_total" optional="hide"/>
+                    <field name="qty_location" optional="show" readonly=""/>
+                    <field name="location" options="{'no_create':true, 'no_open':true}" required="1"/>
+                    <field name="location_id_domain" invisible="1"/>
+                    <field name="property_stock_inventory" options="{'no_create':true, 'no_open':true}"
+                           domain="location_id_domain" invisible="1"/>
+                    <field name="picking_type_id" options="{'no_create':true, 'no_open':true}"
+                           optional="hide" invisible="1"/>
+                    <field name="warehouse_id" options="{'no_create':true, 'no_open':true}" required="1"/>
+                    <field name="transit_location_id" optional="hide"/>
+                    <field name="location_dest_id_domain" invisible="1"/>
+                    <field name="default_location_dest_id" options="{'no_create':true, 'no_open':true}" domain="location_dest_id_domain" required="1"/>
+                    <field name="product_qty2"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='account_analytic_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='product_qty']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='product_qty']" position="before">
+                    <field name="inventory_product_qty" optional="show"/>
+                    <field name="show_picking" invisible="1"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='price_unit']" position="after">
+                    <field name="x_project" options="{'no_create':true, 'no_open':true}" invisible="1"/>
+                    <field name="observations" optional="show"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='product_qty']" position="attributes">
+                    <attribute name="string">Cantidad compra</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_description_variants']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_uom_id']" position="attributes">
+                    <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='schedule_date']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='line_ids']/tree[1]/field[@name='price_unit']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

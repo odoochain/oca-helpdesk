@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+    <!--   Vista formulario tipo de requisición    -->
+      <record id="view_purchase_requisition_type_form_extend" model="ir.ui.view">
+          <field name="name">view_purchase_requisition_type_form_extend</field>
+          <field name="model">purchase.requisition.type</field>
+          <field name="inherit_id" ref='purchase_requisition.view_purchase_requisition_type_form'/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='exclusive']" position="after">
+                <field name="disable_approval" widget="upgrade_boolean"/>
+              </xpath>
+          </field>
+      </record>
+  </data>
+</odoo>

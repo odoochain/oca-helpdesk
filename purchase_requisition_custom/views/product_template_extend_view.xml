@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Smart button -->
+        <record model="ir.actions.act_window" id="action_stock_quant_to_so">
+            <field name="name">Disponible</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('product_tmpl_id', '=', active_id), ('usage', '=', 'internal'),
+                ('location_id.usage', '=', 'internal'), ('quantity', '>', 0.0)]</field>
+            <field name="context">{
+                "default_product_tmpl_id": active_id,
+                "default_user_id": False,
+                }
+            </field>
+        </record>
+
+        <record id="product_template_extend_view" model="ir.ui.view">
+            <field name="name">product_template_extend_view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <!--         smart button           -->
+                <xpath expr="//button[@name='action_open_quants']" position="before">
+                    <button name="%(action_stock_quant_to_so)d" type="action" class="oe_stat_button" icon="fa-cubes">
+                        <field name="available_stock" widget="statinfo" string="Disponible"/>
+                    </button>
+                </xpath>
+                <xpath expr="//form[@name='Product Template']/sheet[@name='product_form']/notebook[1]/page[@name='inventory']/group[@name='inventory']" position="after">
+                    <field name="stock_quant" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--        Vista kanban-->
+        <record id="Product_Template_Kanban_Stock_Extend" model="ir.ui.view">
+            <field name="name">Product_Template_Kanban_Stock_Extend</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.product_template_kanban_stock_view"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="inside">
+                    <field name="type"/>
+                </xpath>
+                <xpath expr="//div[@name='product_lst_price']" position="after">
+                    <div t-if="record.type.raw_value == 'product'" style="color: green">Disponible: <field name="available_stock"/></div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

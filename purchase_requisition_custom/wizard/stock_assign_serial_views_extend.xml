@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_assign_serial_numbers_extend" model="ir.ui.view">
+      <field name="name">stock_assign_serial_numbers_extend</field>
+      <field name="model">stock.assign.serial</field>
+      <field name="inherit_id" ref="stock.view_assign_serial_numbers"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='next_serial_count']" position="after">
+              <field name="fee_unit" invisible=""/>
+              <field name="observation" invisible=""/>
+              <field name="contract_date" optional="show" invisible=""/>
+          </xpath>
+      </field>
+    </record>
+</odoo>

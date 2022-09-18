@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchaseorder_document_extend" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[@class='oe_structure']" position="after">
+            <h6 t-if="o.warehouse_manager">Responsable de almacen:  <span t-field="o.warehouse_manager"/>
+            <strong>, </strong><span t-field="o.mobile_phone"/></h6>
+        </xpath>
+        <xpath expr="//div[@t-if='o.date_order']" position="after">
+            <div t-if="o.payment_term_id" class="col-3 bm-2">
+                <strong>Plazo de pago:</strong>
+                <p t-field="o.payment_term_id" class="m-0"/>
+            </div>
+        </xpath>
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_account_analytic" class="text-center"><strong>Cuenta analítica</strong></th>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="after">
+            <td id="td_account_analytic">
+                <span t-field="line.account_analytic_id"/>
+            </td>
+        </xpath>
+        <xpath expr="//div[@id='total']" position="after">
+            <t t-set="has_account_analytic_id" t-value="False"/>
+            <t t-set="has_account_analytic_id" t-value="o.order_line.mapped('account_analytic_id')"/>
+            <h2 t-if="has_account_analytic_id">Centro de costo</h2>
+            <table class="table table-sm o_main_table">
+                <thead>
+                    <tr>
+                        <th name="th_account_analytic_id" t-if="has_account_analytic_id"><strong>Cuenta analítica</strong></th>
+                        <th name="th_price_subtotal" t-if="has_account_analytic_id"><strong>Sub Total</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="o.x_account_analytic_cost" t-as="x_line">
+                    <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                        <td id="td_account_analytic">
+                            <span t-field="x_line.account_analytic_id"/>
+                        </td>
+                        <td id="td_price_subtotal">
+                            <strong>$ </strong><span t-field="x_line.price_subtotal"/>
+                        </td>
+                    </tr>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+</odoo>

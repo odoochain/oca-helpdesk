@@ -1,0 +1,175 @@
+<odoo>
+  <data>
+    <record id="purchase_extend_inherit_view" model="ir.ui.view">
+      <field name="name">purchase_extend_inherit_view</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref='purchase_requisition.purchase_order_form_inherit'/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='requisition_id']" position="after">
+          <field name="requisition_state" attrs="{'invisible': [('requisition_id','=',False)]}"/>
+          <field name="time_off"/>
+          <field name="time_off_related" invisible="1"/>
+          <field name="aprove_manager2" invisible="1"/>
+          <field name="representative_user" attrs="{'invisible': [('requisition_id','=', False)]}"/>
+          <field name="related_requisition" invisible="1"/>
+          <field name="state_aprove" invisible="1"/>
+          <field name="manager_before" invisible="1"/>
+          <field name="activity_id" invisible="1"/>
+        </xpath>
+        <xpath expr="//field[@name='date_order']" position="before">
+          <field name="color" invisible="1"/>
+        </xpath>
+        <xpath expr="//field[@name='date_order']" position="after">
+          <field name="current_date" invisible="1"/>
+        </xpath>
+        <xpath expr="//field[@name='sequence']" position="after">
+          <field name="image_product" optional="show" options="{&quot;size&quot;:[0,90]}" widget="image"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='order_line']/tree[1]/field[@name='name']" position="after">
+          <field name="location_id" optional="hide" invisible="1"/>
+          <field name="warehouse_id" optional="show" domain="[('usage', '=', 'internal')]"/>
+          <field name="transit_location_id" optional="hide" domain="[('usage', '=', 'transit')]"/>
+          <field name="location_dest_id_domain" invisible="1"/>
+          <field name="location_dest_id" optional="show" domain="location_dest_id_domain"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="Contabilidad analítica" name="account_analytic_page">
+              <field name="x_account_analytic_cost" widget="one2many" readonly="">
+                <tree string="Purchase account analytic">
+                  <field name="id" invisible="1"/>
+                  <field name="account_analytic_id" optional="show"/>
+                  <field name="price_subtotal" optional="show"/>
+                </tree>
+              </field>
+          </page>
+        </xpath>
+        <xpath expr="//field[@name='requisition_id']" position="attributes">
+              <attribute name="readonly">1</attribute>
+              <attribute name="attrs">{'invisible': [('requisition_id', '=', False)]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='partner_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='order_line']/tree[1]/field[@name='product_id']" position="attributes">
+          <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='user_id']" position="attributes">
+              <attribute name="required">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='payment_term_id']" position="attributes">
+              <attribute name="required">1</attribute>
+        </xpath>
+        <!--        Concatenar campos -->
+        <field name="time_off" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </field>
+        <field name="time_off" position="after" >
+          <label for="aprove_manager" string="Responsable de aprobación"/>
+          <div>
+            <field name="aprove_manager" class="oe_inline"
+                   options="{'no_create':true, 'no_open':true}"/>
+            <span class="oe_read_only" attrs="{'invisible': [('aprove_manager', '=', False)]}"> - </span>
+            <field name="time_off" placeholder="Number" class="oe_inline" style="color: green"
+                 attrs="{'invisible': ['|', ('time_off_related', '=', True), ('aprove_manager', '=', False)]}"/>
+            <field name="time_off" placeholder="Number" class="oe_inline" style="color: red"
+                 attrs="{'invisible': ['|', ('time_off_related', '=', False), ('aprove_manager', '=', False)]}"/>
+          </div>
+        </field>
+      </field>
+    </record>
+
+    <record id="purchase_extend_form_view_inherit_purchase_stock" model="ir.ui.view">
+      <field name="name">purchase_extend_view</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref='purchase_stock.purchase_order_view_form_inherit'/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='picking_type_id']" position="after">
+          <field name="warehouse_manager" widget="many2many_tags" options="{'no_create':true}"/>
+          <field name="mobile_phone" invisible="1"/>
+        </xpath>
+        <xpath expr="//field[@name='picking_type_id']" position="attributes">
+          <attribute name="attrs">{"readonly": [["state","in",["purchase","done","cancel"]]]}</attribute>
+          <attribute name="invisible">1</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="purchase_extend_view" model="ir.ui.view">
+      <field name="name">purchase_extend_view</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref='purchase.purchase_order_form'/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@id='bid_confirm']" position="replace" >
+          <button name="button_confirm_extend" type="object" string="Confirmar Orden" class="oe_highlight"
+                  id="bid_confirm" data-hotkey="v" confirm="¿Desea confirmar esta solicitud de compra?"
+                  attrs="{'invisible': ['|', ['related_requisition', '=', False], ['state', '!=', 'sent']]}"/>
+        </xpath>
+        <xpath expr="//button[@id='draft_confirm']" position="replace" >
+          <button name="button_confirm_extend" type="object" string="Confirmar Orden"
+                  id="draft_confirm" confirm="¿Desea confirmar esta solicitud de compra?"
+                  attrs="{'invisible': ['|', ['related_requisition', '=', False], ['state', '!=', 'draft']]}"/>
+        </xpath>
+        <xpath expr="//button[@name='button_approve']" position="replace" >
+          <button name="button_confirm2" type="object" string="Confirmar Orden" class="oe_highlight" id="bid_confirm"
+                  data-hotkey="v" confirm="¿Desea confirmar esta solicitud de compra?"
+                  attrs="{'invisible': ['|', ['state', '!=', 'draft'], ['related_requisition', '=', True]]}"/>
+          <button name="button_confirm2" type="object" string="Confirmar Orden" class="oe_highlight" id="bid_confirm"
+                  data-hotkey="v" confirm="¿Desea confirmar esta solicitud de compra?"
+                  attrs="{'invisible': ['|', ['state', '!=', 'sent'], ['related_requisition', '=', True]]}"/>
+          <button name="button_approve" type="object" string="Aprobar Orden" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['related_requisition', '!=', False], ['state', '!=', 'to approve']]}"/>
+          <button name="button_approve_extend" type="object" string="Aprobar Orden" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['state_aprove', '!=', 1], ['state', '!=', 'to approve']]}"/>
+          <button name="button_approve_extend" type="object" string="Aprobar Orden ⁽2⁾" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['state_aprove', '!=', 2], ['state', '!=', 'to approve']]}"/>
+          <button name="button_approve_extend" type="object" string="Aprobar Orden ⁽3⁾" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['state_aprove', '!=', 3], ['state', '!=', 'to approve']]}"/>
+          <button name="button_approve_extend" type="object" string="Aprobar Orden ⁽4⁾" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['state_aprove', '!=', 4], ['state', '!=', 'to approve']]}"/>
+          <button name="button_approve_extend" type="object" string="Aprobar Orden ⁽5⁾" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['state_aprove', '!=', 5], ['state', '!=', 'to approve']]}"/>
+          <button name="button_approve_extend" type="object" string="Aprobar Orden ⁽estra⁾" confirm="¿Desea aprobar esta solicitud de compra?"
+                  class="oe_highlight" data-hotkey="z" attrs="{'invisible': ['|', ['state_aprove', '!=', 6], ['state', '!=', 'to approve']]}"/>
+        </xpath>
+        <xpath expr="//button[@name='button_draft']" position="replace" >
+          <button name="button_draft_extend" states="cancel" string="Cambiar a borrador" type="object" data-hotkey="o"/>
+        </xpath>
+        <xpath expr="//button[@name='button_cancel']" position="before" >
+          <button name="button_cancel_extend" states="to approve,sent" string="Rechazar" type="object" data-hotkey="x"
+          confirm="¿Desea anular esta solicitud de compra?"/>
+          <button name="button_account_analytic_cost" string="Recalcular" type="object" groups="purchase.group_purchase_user"
+                  invisible=""/>
+        </xpath>
+        <xpath expr="//button[@name='button_cancel']" position="replace" >
+          <button name="button_cancel" states="draft,sent,purchase" string="Cancelar" type="object" data-hotkey="x"
+          confirm="¿Desea anular esta solicitud de compra?"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!--    Vista lista ordenes de compra-->
+    <record id="purchase_order_tree_view" model="ir.ui.view">
+      <field name="name">purchase_order_tree_view</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref='purchase.purchase_order_tree'/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="after">
+          <field name="representative_user"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!--              Vista panel de control               -->
+    <record id="purchase_order_select_extend" model="ir.ui.view">
+      <field name="name">quant_search_view_extend</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+      <field name="arch" type="xml">
+        <xpath expr="//filter[@name='order_date']" position="after">
+          <filter string="Representante del Proveedor" name="representative_user" domain="[]"
+                  context="{'group_by': 'representative_user'}"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
