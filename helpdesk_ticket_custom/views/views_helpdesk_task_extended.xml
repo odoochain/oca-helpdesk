@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+
+    <!-- Se hereda el campo de ticket en el modelo de tareas  -->
+    <record id="helpdesk_task_extended" model="ir.ui.view">
+      <field name="name">project_task_inherit</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_form2"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_ids']" position="after">
+          <field name="department" widget="many2many_tags"/>
+          <field name="helpdesk_ticket_id"/>
+        </xpath>
+        <xpath expr="//field[@name='planned_date_begin']" position="attributes">
+          <attribute name="required">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='planned_date_end']" position="attributes">
+          <attribute name="required">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='user_ids']" position="attributes">
+          <attribute name="options">{"no_create":true}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='tag_ids']" position="attributes">
+          <attribute name="options">{"no_create":true}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='project_id']" position="attributes">
+          <attribute name="options">{"no_create":true}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='helpdesk_ticket_id']" position="attributes">
+          <attribute name="options">{"no_create":true}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='partner_id']" position="attributes">
+          <attribute name="options">{"no_create":true}</attribute>
+          <attribute name="domain">[["x_ticket_show","=",True]]</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Se hereda el campo de ticket en el modelo de tareas en vista lista -->
+    <record id="project_task_inherit_list" model="ir.ui.view">
+      <field name="name">project_task_inherit</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="industry_fsm.project_task_view_list_fsm"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='planned_date_end']" position="after">
+          <field name="helpdesk_ticket_id"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

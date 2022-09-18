@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!--                                                  VISTAS LISTA                                            -->
+    <!-- Se crea vista lista de familia en ajustes de tickets -->
+    <record id="helpdesk_ticket_custom.family_list" model="ir.ui.view">
+      <field name="name">helpdesk_ticket_custom_family.list</field>
+      <field name="model">helpdesk_family</field>
+      <field name="arch" type="xml">
+        <tree string="tree">
+          <field name="name"/>
+          <field name="x_code"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--                                                  VISTAS FOMULARIO                                       -->
+    <!-- Se crea vista de familia en ajustes de tickets -->
+    <record id="helpdesk_ticket_custom.family_form" model="ir.ui.view">
+      <field name="name">helpdesk_ticket_custom_family.form</field>
+      <field name="model">helpdesk_family</field>
+      <field name="arch" type="xml">
+        <form string="Family">
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">
+                <field name="name"/>
+              </group>
+              <group name="group_right">
+                <field name="x_code"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--                                    actions opening views on models                                        -->
+    <record model="ir.actions.act_window" id="action_window_family">
+      <field name="name">Familia</field>
+      <field name="res_model">helpdesk_family</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <!--                                    Agregar elemento de menú externo                                 -->
+    <menuitem name="Familia" id="helpdesk_ticket_custom_menu_family" parent="helpdesk.helpdesk_menu_config"
+              action="action_window_family" sequence="13"/>
+
+  </data>
+</odoo>

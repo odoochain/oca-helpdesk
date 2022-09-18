@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+
+    <!-- Se hereda el campo de proyectos en el modelo de usuarios  -->
+    <record id="helpdesk_partner_extended" model="ir.ui.view">
+      <field name="name">helpdesk_partner_inherit</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[1]" position="after">
+          <field name="x_ticket_show" widget="boolean_toggle"/>
+          <field name="project_domain" invisible="1"/>
+        </xpath>
+        <xpath expr="//page[@name='internal_notes']" position="after">
+          <page string="Helpdesk">
+            <field name="x_project" options="{'no_create':true}" invisible="1"/>
+            <field name="project" domain="project_domain" options="{'no_create':true}"/>
+          </page>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[not(@name)][1]" position="attributes">
+          <attribute name="attrs">{"invisible": [["x_ticket_show","!=",True]]}</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

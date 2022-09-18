@@ -1,0 +1,13 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<odoo>
+    <!-- Atomatización para api@onchange para asignar proyectos de contactos individuales dependiente de la compañia   -->
+
+    <record id="automation_project_to_contact" model="base.automation">
+        <field name="name">automation of project to contact</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="state">object_write</field>
+        <field name="trigger">on_create_or_write</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>

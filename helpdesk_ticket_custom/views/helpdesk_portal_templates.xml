@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <!-- Herencia para agregar desde la vista portal de tickets la agrupación por mesa de ayuda-->
+    <template id="portal_helpdesk_ticket_custom" name="Helpdesk Ticket custom"
+              inherit_id="helpdesk.portal_helpdesk_ticket"
+              active="True" customize_show="True">
+        <xpath expr="//t[@t-call='portal.portal_layout']" position="replace">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Tickets</t>
+                </t>
+                <div t-if="not grouped_tickets" class="alert alert-info">
+                    Actualmente no hay Tickets para su cuenta.
+                </div>
+                <t t-else="">
+                    <t t-call="portal.portal_table">
+                        <t t-foreach="grouped_tickets" t-as="tickets">
+                            <thead>
+                                <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                    <th class="text-left">Ref</th>
+                                    <th t-if="groupby == 'none'" class="w-100">Descripción</th>
+                                    <th t-if="groupby == 'stage'">
+                                        <em class="font-weight-normal text-muted">Tickets en la etapa:</em>
+                                        <span t-field="tickets[0].stage_id.name"/>
+                                    </th>
+                                    <th t-if="groupby == 'team'">
+                                        <em class="font-weight-normal text-muted">Equipo:</em>
+                                        <span t-field="tickets[0].team_id.name"/>
+                                    </th>
+                                    <th/>
+                                    <th t-if="groupby != 'stage'" class="text-center">Etapa</th>
+                                    <th t-if="groupby != 'team'" class="text-center">Equipo</th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="tickets" t-as="ticket">
+                                <tr>
+                                    <td class="text-left"><a t-attf-href="/helpdesk/ticket/#{ticket.id}"><small>#</small><t t-esc="ticket.id"/></a></td>
+                                    <td><a t-attf-href="/helpdesk/ticket/#{ticket.id}"><span t-field="ticket.name"/></a></td><td/>
+                                    <td t-if="groupby != 'stage'" class="text-center"><span class="badge badge-pill badge-info" t-field="ticket.stage_id.name"/></td>
+                                    <td t-if="groupby != 'team'" class="text-center"><span class="badge badge-pill badge-info" t-field="ticket.team_id.name"/></td>
+                                </tr>
+                            </t>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+</data>
+</odoo>

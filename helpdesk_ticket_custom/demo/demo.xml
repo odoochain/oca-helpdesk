@@ -1,0 +1,16 @@
+<odoo>
+
+    <record id="padilla" model="teachers">
+        <field name="name">Diana Padilla</field>
+        <field name="biography">demo1</field>
+    </record>
+    <record id="carroll" model="teachers">
+        <field name="name">Jody Carroll</field>
+        <field name="biography">demo2</field>
+    </record>
+    <record id="vaughn" model="teachers">
+        <field name="name">Lester Vaughn</field>
+        <field name="biography">demo3</field>
+    </record>
+
+</odoo>

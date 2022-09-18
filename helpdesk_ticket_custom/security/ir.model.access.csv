@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_classification,helpdesk_ticket_custom.helpdesk_classification,model_helpdesk_classification,base.group_user,1,1,1,1
+access_helpdesk_project,helpdesk_ticket_custom.helpdesk_project,model_helpdesk_project,base.group_user,1,1,1,1
+access_helpdesk_family,helpdesk_ticket_custom.helpdesk_family,model_helpdesk_family,base.group_user,1,1,1,1
+access_helpdesk_sub_group,helpdesk_ticket_custom.helpdesk_sub_group,model_helpdesk_sub_group,base.group_user,1,1,1,1
+access_helpdesk_team,helpdesk.team,model_helpdesk_team,base.group_user,1,1,1,1
+access_project_location,helpdesk.project_location,model_project_location,base.group_user,1,1,1,1
+

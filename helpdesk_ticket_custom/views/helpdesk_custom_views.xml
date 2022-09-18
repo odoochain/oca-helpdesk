@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="helpdesk_create_ticket_action_main_my">
+          <field name="name">Tickets</field>
+          <field name="res_model">helpdesk.ticket</field>
+          <field name="view_mode">list,form</field>
+          <field name="domain">[('create_uid', '=', uid)]</field>
+      </record>
+
+    <menuitem id="helpdesk_create_ticket_menu_my" name="Mis tickets creados" action="helpdesk_create_ticket_action_main_my"
+        sequence="15" parent="helpdesk.helpdesk_ticket_menu_main"/>
+
+</odoo>

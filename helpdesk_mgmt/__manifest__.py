@@ -32,6 +32,6 @@
     ],
     "demo": ["demo/helpdesk_demo.xml"],
     "development_status": "Beta",
-    "application": True,
-    "installable": True,
+    "application": False,
+    "installable": False,
 }

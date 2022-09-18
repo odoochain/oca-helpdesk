@@ -1,0 +1,25 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<odoo>
+    <!--                        CARGA DE EQUIPOS DE ASISTENCIA  POR DEFECTO                                   -->
+    <!-- helpdesk team Tecnologia -->
+    <record id="helpdesk_team_tecnologia" model="helpdesk.team">
+        <field name="name">Tecnologia</field>
+        <field name="use_website_helpdesk_form" eval="True"/>
+    </record>
+        <!-- helpdesk team Operaciones -->
+    <record id="helpdesk_team_operaciones" model="helpdesk.team">
+        <field name="name">Operaciones</field>
+        <field name="use_website_helpdesk_form" eval="True"/>
+    </record>
+    <!-- helpdesk team Logistica -->
+    <record id="helpdesk_team_logistica" model="helpdesk.team">
+        <field name="name">Logistica</field>
+        <field name="use_website_helpdesk_form" eval="True"/>
+    </record>
+    <!--                        CARGA DE AJUESTES POR DEFECTO                                   -->
+    <!-- Activa contabilidad analitica en los ajustes de contabilidad-->
+    <record id="helpdesk_team_operaciones" model="res.config.settings">
+        <field name="group_analytic_accounting" eval="True"/>
+    </record>
+
+</odoo>

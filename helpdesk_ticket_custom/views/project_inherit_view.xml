@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="edit_project_form_inherit" model="ir.ui.view">
+            <field name="name">edit_project_form_inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <page string="Helpdesk" name="studio_page_m0j7T">
+                        <sheet>
+                            <group name="group">
+                                <group name="group_top">
+                                    <field name="current_location" options="{'no_create':true, 'no_open':true}"/>
+                                </group>
+                                <group name="group_top2">
+                                </group>
+                            </group>
+                            <group name="group_left">
+                                <field name="partner_project_id" options="{'no_create':true, 'no_open':true}"/>
+                            </group>
+                        </sheet>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

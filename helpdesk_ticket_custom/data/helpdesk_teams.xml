@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- helpdesk team Tecnologia -->
+    <record id="helpdesk_team_tecnologia" model="helpdesk.team">
+        <field name="name">TECNOLOGIA</field>
+        <field name="use_sla" eval="True"/>
+        <field name="use_rating" eval="True"/>
+        <field name="member_ids" eval="[Command.link(ref('base.user_admin'))]"/>
+        <field name="use_website_helpdesk_form" eval="True"/>
+    </record>
+    <!-- helpdesk team Operaciones -->
+    <record id="helpdesk_team_operaciones" model="helpdesk.team">
+        <field name="name">OPERACIONES</field>
+        <field name="use_sla" eval="True"/>
+        <field name="use_rating" eval="True"/>
+        <field name="member_ids" eval="[Command.link(ref('base.user_admin'))]"/>
+        <field name="use_website_helpdesk_form" eval="True"/>
+    </record>
+</odoo>

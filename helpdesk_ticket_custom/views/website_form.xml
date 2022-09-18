@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="helpdesk_ticket_website_menu" model="website.menu">
+            <field name="name">Mesa de ayuda</field>
+            <field name="url">text/ticket</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">55</field>
+        </record>
+
+        <record id="helpdesk_ticket_website" model="ir.ui.view">
+            <field name="name">helpdesk_ticket_extended</field>
+             <field name="inherit_id" ref="website_helpdesk_form.team_form_1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='form-group col-12 s_website_form_field']" position="before">
+
+                  <div class="form-group">
+                    <label for="departamento" class="text-uppercase text-primary"> departamento</label>
+                    <select name="" id="departamento" class="custom-select">
+                        <!-- cargaremos las etiquetas de option con javascript -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="provincia" class="text-uppercase text-primary"> provincia</label>
+                    <select name="" id="provincia" class="custom-select">
+                        <!-- cargaremos las etiquetas de option con javascript -->
+                    </select>
+                </div>
+
+                <script type="text/javascript" src="js/main.js"></script>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

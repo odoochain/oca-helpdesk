@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- Se hereda el campo de proyectos, familia y grupo en el modelo de tickets -->
+    <record id="helpdesk_ticket_extended" model="ir.ui.view">
+      <field name="name">helpdesk_ticket_inherit</field>
+      <field name="model">helpdesk.ticket</field>
+      <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='tag_ids']" position="after">
+              <field name="create_date"/>
+              <field name="create_uid"/>
+              <field name="__last_update"/>
+              <field name="write_uid"/>
+          </xpath>
+          <xpath expr="//field[@name='partner_phone']" position="after">
+              <field name="ticket_type" widget="radio" options="{&quot;horizontal&quot;:true}"/>
+              <field name="x_visibility_related" attrs="{'invisible':True}"/>
+              <field name="x_classification" attrs="{'invisible': [['x_visibility_related', '!=', True]]}"/>
+              <field name="x_project" options="{'no_create':true, 'no_open':true}" invisible="1"/>
+              <field name="project_domain" options="{'no_create':true, 'no_open':true}" invisible="1"/>
+              <field name="project" domain="project_domain" options="{'no_create':true, 'no_open':true}" required="1"/>
+              <field name="current_location"/>
+              <field name="location"/>
+              <field name="x_family" options="{'no_create':true, 'no_open':true}" invisible="1"/>
+              <field name="x_sub_group" options="{'no_create':true, 'no_open':true}" invisible="1"/>
+              <field name="close_date"/>
+              <field name="close_hours"/>
+          </xpath>
+          <xpath expr="//field[@name='ticket_type_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+              <attribute name="required">1</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tag_ids']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='user_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='team_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+          </xpath>
+          <xpath expr="//field[@name='partner_id']" position="attributes">
+              <attribute name="options">{"no_create":true, "no_open":true}</attribute>
+              <attribute name="domain">[["x_ticket_show","=",True]]</attribute>
+              <attribute name="required">1</attribute>
+          </xpath>
+          <xpath expr="//field[@name='tag_ids']" position="attributes">
+              <attribute name="required">1</attribute>
+          </xpath>
+          <xpath expr="//field[@name='email_cc']" position="attributes">
+              <attribute name="invisible">1</attribute>
+          </xpath>
+          <xpath expr="//field[@name='partner_phone']" position="attributes">
+              <attribute name="readonly">1</attribute>
+          </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
