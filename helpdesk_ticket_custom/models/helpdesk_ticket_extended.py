@@ -3,13 +3,15 @@ from odoo import models, fields, api, _
 import json
 
 # heredamos del modelo de tickets de mesa ayuda
+
+
 class helpdesk_ticket_extended(models.Model):
     _inherit = 'helpdesk.ticket'
 
     x_visibility_related = fields.Boolean(string='Campo oculto', related='team_id.x_visibility', store=True,
                                           readonly=True)
     x_classification = fields.Many2one(comodel_name='helpdesk_classification', string='Clasificación')
-    x_project = fields.Many2one(comodel_name='helpdesk_project', string='Proyecto',
+    x_project = fields.Many2one(comodel_name='helpdesk_project', string='X Project',
                                 help='El proyecto está relacionado con su respectivo centro de costo')
     x_family = fields.Many2one(comodel_name='helpdesk_family', string='Familia',
                                help='Familia a la que pertenece el requerimiento del ticket')

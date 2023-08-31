@@ -3,6 +3,7 @@ from odoo import fields, models, api, exceptions
 
 class project_location(models.Model):
     _name = 'project_location'
+    _description = 'Project Location'
 
     name = fields.Char(string='Locación')
     code = fields.Char(string='Código')

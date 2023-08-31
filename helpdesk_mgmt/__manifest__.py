@@ -34,4 +34,5 @@
     "development_status": "Beta",
     "application": False,
     "installable": False,
+    "excludes": ["helpdesk_mgmt_chain"],
 }

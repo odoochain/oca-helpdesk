@@ -15,14 +15,14 @@ class helpdesk_partner_extended(models.Model):
                                  relation='x_helpdesk_project_res_partner_rel',
                                  column1='res_partner_id',
                                  column2='helpdesk_project_id',
-                                 string='Proyecto',
+                                 string='X Project',
                                  )
     project_domain = fields.Char(string='project domain', compute='_compute_project_domain2')
     project = fields.Many2many(comodel_name='project.project',
                                relation='x_project_project_res_partner_rel',
                                column1='res_partner_id',
                                column2='project_project_id',
-                               string='Proyecto',
+                               string='Project',
                                )
 
     # Función que aplica filtro dinamico de almacen
