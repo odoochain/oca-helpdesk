@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-04 09:36+0000\n"
+"PO-Revision-Date: 2024-06-12 21:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -28,19 +28,9 @@ msgid "Analytic Line"
 msgstr "Riga analitica"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
-msgid "Change the Default Project will not have retroactive effects."
-msgstr "La modifica del progetto predefinito non avrà effetti retroattivi."
-
-#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Date"
 msgstr "Data"
-
-#. module: helpdesk_mgmt_timesheet
-#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__default_project_id
-msgid "Default Project"
-msgstr "Progetto predefinito"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
@@ -57,17 +47,22 @@ msgstr "Fine lavoro"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Ticket Helpdesk"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Team Ticket Helpdesk"
+msgstr "Team ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:project.project,name:helpdesk_mgmt_timesheet.project_1
 msgid "Helpdesk general project"
-msgstr ""
+msgstr "Progetto generale Helpdesk"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
+msgid "Helper to quickly switch between timesheet lines"
+msgstr "Assistente per spostarsi velocemente tra righe del foglio ore"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
@@ -145,7 +140,7 @@ msgstr "Ticket contatto"
 #: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
 #: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
 msgid "Tickets"
-msgstr "Tickets"
+msgstr "Ticket"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
@@ -178,6 +173,9 @@ msgstr "Con attività oggi"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
 msgid "With ticket"
 msgstr "Con ticket"
+
+#~ msgid "Change the Default Project will not have retroactive effects."
+#~ msgstr "La modifica del progetto predefinito non avrà effetti retroattivi."
 
 #~ msgid "Display Name"
 #~ msgstr "Nome visualizzato"

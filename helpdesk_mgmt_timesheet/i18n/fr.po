@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-05-31 09:39+0000\n"
-"Last-Translator: Rémi <remi@le-filament.com>\n"
+"PO-Revision-Date: 2024-02-29 10:33+0000\n"
+"Last-Translator: Vincent Hatakeyama <vincent+github@hatakeyama.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
@@ -28,19 +28,9 @@ msgid "Analytic Line"
 msgstr "Ligne Analytique"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
-msgid "Change the Default Project will not have retroactive effects."
-msgstr "Modifier le Projet par défaut ne sera pas appliqué rétroactivement."
-
-#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Date"
 msgstr "Date"
-
-#. module: helpdesk_mgmt_timesheet
-#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__default_project_id
-msgid "Default Project"
-msgstr "Projet par Défaut"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
@@ -67,6 +57,11 @@ msgstr "Équipe d'Assistance"
 #. module: helpdesk_mgmt_timesheet
 #: model:project.project,name:helpdesk_mgmt_timesheet.project_1
 msgid "Helpdesk general project"
+msgstr "Projet général d’assistance"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
+msgid "Helper to quickly switch between timesheet lines"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
@@ -178,6 +173,9 @@ msgstr "Avec une activité aujourd'hui"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
 msgid "With ticket"
 msgstr "Avec un ticket"
+
+#~ msgid "Change the Default Project will not have retroactive effects."
+#~ msgstr "Modifier le Projet par défaut ne sera pas appliqué rétroactivement."
 
 #~ msgid "Display Name"
 #~ msgstr "Nom Affiché"
